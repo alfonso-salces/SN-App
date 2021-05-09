@@ -1,0 +1,11 @@
+<div data-testid="sn-login-container" class="sn-login-wrapper">
+    <div class="sn-login-wrapper--container" [@fadeInOut]>
+        <div class="sn-login-wrapper--container--logo">
+            <img src="assets/img/logo.jpg" alt="Logo de la aplicación" />
+        </div>
+        <h2 class="sn-login-wrapper--container--title">Prueba técnica</h2>
+        <div class="sn-login-wrapper--container--form">
+            <sn-login-form (formSending)="sendForm($event)"></sn-login-form>
+        </div>
+    </div>
+</div>

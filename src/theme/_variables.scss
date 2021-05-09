@@ -1,0 +1,26 @@
+// Colors
+$primary: #0d63bc;
+$secondary: #ffffff;
+$lightsilverfill: #c1c1c1;
+$darksilverfill: #9a9a9a;
+$lightBlack: #343434;
+$toggleSelected: #b1b1b5;
+$errorLight: #ff0000;
+
+// Fonts
+$defaultfont: 14px;
+$titlefont: 16px;
+$defaultWeight: 400;
+$middleWeight: 500;
+$titleWeight: 600;
+
+// Width
+$snMobile: 480px;
+$snTablet: 768px;
+$snDesktop: 960px;
+
+$breakpoints: (
+    mobile: $snMobile,
+    tablet: $snTablet,
+    desktop: $snDesktop,
+);

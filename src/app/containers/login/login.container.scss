@@ -1,0 +1,48 @@
+@import 'variables';
+@import 'mixins';
+
+.sn-login-wrapper {
+    height: 100%;
+    width: 100%;
+    background: url('/assets/img/background.jpg') no-repeat;
+    background-size: cover;
+    &--container {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        &--logo {
+            padding: 2.5em;
+            img {
+                height: 125px;
+                object-fit: cover;
+                object-position: 1% 100%;
+                width: 125px;
+            }
+        }
+        &--form {
+            width: 90%;
+            background-color: $secondary;
+        }
+        &--title {
+            display: none;
+        }
+    }
+}
+
+@include breakpoint(desktop) {
+    .sn-login-wrapper {
+        display: flex;
+        &--container {
+            width: 33%;
+            background-color: $secondary;
+            margin: auto;
+            &--logo {
+                padding: 2.5em 2.5em 1em 2.5em;
+            }
+            &--title {
+                display: block;
+            }
+        }
+    }
+}

@@ -11,20 +11,21 @@
       "extends": [
         "plugin:@angular-eslint/ng-cli-compat",
         "plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
-        "plugin:@angular-eslint/template/process-inline-templates"
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "prettier"
       ],
       "rules": {
         "@angular-eslint/component-class-suffix": [
           "error",
           {
-            "suffixes": ["Page", "Component"]
+            "suffixes": ["Container", "Component"]
           }
         ],
         "@angular-eslint/component-selector": [
           "error",
           {
             "type": "element",
-            "prefix": "app",
+            "prefix": "sn",
             "style": "kebab-case"
           }
         ],
@@ -32,7 +33,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "app",
+            "prefix": "sn",
             "style": "camelCase"
           }
         ]

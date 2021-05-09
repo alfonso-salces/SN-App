@@ -1,0 +1,43 @@
+@import 'variables';
+@import 'mixins';
+
+.sn-login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  &--inputs {
+    padding: 0.5em 1.5em 0.5em 1.5em;
+  }
+  &--remember {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1.5em 0 1.5em;
+    &--text {
+      color: $lightBlack;
+      font-weight: $titleWeight;
+    }
+  }
+  &--button {
+    width: 100%;
+    margin-top: 0.5em;
+  }
+  &__field-error {
+    color: $errorLight;
+  }
+}
+
+@include breakpoint(desktop) {
+  .sn-login-form {
+    &--button {
+      width: 33%;
+      margin: 1em auto 1.5em auto;
+    }
+    &--inputs {
+      padding: 0.5em 0.7em 0.5em 0.7em;
+    }
+    &--remember {
+      padding: 0 0.7em 0 0.7em;
+    }
+  }
+}

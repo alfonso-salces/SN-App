@@ -1,0 +1,34 @@
+@import 'variables';
+
+.sn-input {
+    border-bottom: 1px solid $lightsilverfill;
+    display: flex;
+    flex-direction: row;
+    padding: 0.7em 0 0.7em 0;
+    &--icon {
+        color: $lightsilverfill;
+        height: 20px;
+        margin-right: 1em;
+        width: 20px;
+    }
+    input {
+        border: none;
+        width: 100%;
+        &::placeholder {
+            color: $darksilverfill;
+            font-size: $defaultfont;
+            font-weight: $middleWeight;
+        }
+        &:focus ~ .sn-input {
+            border-bottom: 2px solid $lightsilverfill;
+        }
+    }
+  &__input-error {
+    border-color: $errorLight;
+    color: $errorLight;
+  }
+
+  &__text-error {
+    color: $errorLight;
+  }
+}

@@ -1,0 +1,37 @@
+<div class="sn-login-form">
+    <form [formGroup]="loginForm" (ngSubmit)="emitForm()">
+        <div class="sn-login-form--inputs">
+            <sn-input
+                formControlName="email"
+                [config]="loginConstants.emailConfig"
+                [hasValidationError]="hasInputError('email')"
+                (input)="canCheckErrors = false"
+            ></sn-input>
+            <span
+                class="sn-login-form__field-error"
+                *ngIf="hasInputError('email')"
+            >
+                {{ getFirstErrorFound('email') }}
+            </span>
+            <sn-input
+                formControlName="password"
+                [config]="loginConstants.passwordConfig"
+                [hasValidationError]="hasInputError('password')"
+                (input)="canCheckErrors = false"
+            ></sn-input>
+            <span
+                class="sn-login-form__field-error"
+                *ngIf="hasInputError('password')"
+            >
+                {{ getFirstErrorFound('password') }}
+            </span>
+        </div>
+        <div class="sn-login-form--remember">
+            <span class="sm-login-form--remember--text">Recordar</span>
+            <ion-toggle formControlName="remember"></ion-toggle>
+        </div>
+        <div class="sn-login-form--button">
+            <sn-button [config]="loginConstants.buttonConfig"></sn-button>
+        </div>
+    </form>
+</div>

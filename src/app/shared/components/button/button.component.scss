@@ -1,0 +1,21 @@
+@import 'variables';
+@import 'mixins';
+
+.sn-button {
+  font-size: $titlefont;
+  width: 100%;
+  padding: 1em;
+  background-color: $primary;
+  color: $secondary;
+}
+
+@include breakpoint(desktop) {
+  .sn-button {
+    border: 2px solid $primary;
+    color: $lightBlack;
+    font-weight: $titleWeight;
+    border-radius: 30px;
+    background-color: $secondary;
+    padding: 0.7em;
+  };
+}

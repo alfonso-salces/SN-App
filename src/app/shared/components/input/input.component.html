@@ -1,0 +1,20 @@
+<div
+    class="sn-input"
+    [ngClass]="{ 'sn-input__input-error': hasValidationError }"
+>
+    <ion-icon
+        (click)="setInputFocus()"
+        class="sn-input--icon"
+        [ngClass]="{ 'sn-input__text-error': hasValidationError }"
+        [name]="config?.icon"
+    ></ion-icon>
+    <input
+        #input
+        [autocomplete]="config?.autocomplete"
+        [placeholder]="config?.placeholder"
+        [type]="config?.type"
+        [name]="config?.name"
+        (focus)="onTouch($event)"
+        (change)="writeValue($event.target.value)"
+    />
+</div>

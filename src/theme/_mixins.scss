@@ -1,0 +1,27 @@
+@import 'variables';
+
+@mixin breakpoint($device) {
+  @if $device == mobile {
+    @media (max-width: $snMobile) {
+      @content;
+    }
+  }
+  @else if $device == tablet {
+    @media (max-width: $snTablet) {
+      @content;
+    }
+  }
+  @else if $device == desktop {
+    @media (min-width: $snDesktop) {
+      @content;
+    }
+  }
+  @else {
+    @warn 'Se está introduciendo un parámetro incorrecto en el breakpoint.';
+    @warn 'Solo están permitidos los siguientes:';
+    @each $key, $value in $breakpoints {
+      @error $value;
+    }
+  }
+}
+
