@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { LoginContainer } from './login.container';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 describe('LoginContainer', () => {
   let component: LoginContainer;
@@ -10,7 +11,7 @@ describe('LoginContainer', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ LoginContainer ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule.forRoot(), BrowserAnimationsModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(LoginContainer);

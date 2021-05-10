@@ -7,7 +7,6 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { InputConfig } from '../../models/shared.model';
-import { LoginConstants } from '../../../containers/login/constants/login.constants';
 
 @Component({
     selector: 'sn-input',
@@ -30,10 +29,8 @@ export class InputComponent implements ControlValueAccessor {
         placeholder: '',
         type: 'text',
     };
-    loginConstants = LoginConstants;
     isDisabled = false;
-    value = '';
-    onChange: any = () => {};
+    private value = '';
     onTouch: any = () => {};
 
     registerOnChange(fn: any): void {
@@ -48,6 +45,10 @@ export class InputComponent implements ControlValueAccessor {
         this.isDisabled = isDisabled;
     }
 
+    setInputFocus() {
+        this.inputElement.nativeElement.focus();
+    }
+
     writeValue(value): void {
         if (value) {
             this.value = value;
@@ -56,7 +57,5 @@ export class InputComponent implements ControlValueAccessor {
         }
     }
 
-    setInputFocus() {
-        this.inputElement.nativeElement.focus();
-    }
+    private onChange: any = () => {};
 }

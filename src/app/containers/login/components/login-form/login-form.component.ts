@@ -14,7 +14,7 @@ import { LoginForm } from '../../models/login.model';
     styleUrls: ['./login-form.component.scss'],
 })
 export class LoginFormComponent implements OnInit {
-    @Output() formSending: EventEmitter<LoginForm> = new EventEmitter();
+    @Output() private formSending: EventEmitter<LoginForm> = new EventEmitter();
     loginForm: FormGroup;
     loginConstants = LoginConstants;
     canCheckErrors = false;
@@ -23,17 +23,6 @@ export class LoginFormComponent implements OnInit {
 
     ngOnInit() {
         this.buildForm();
-    }
-
-    buildForm() {
-        this.loginForm = this.formBuilder.group({
-            email: new FormControl('', [Validators.required, Validators.email]),
-            password: new FormControl('', [
-                Validators.required,
-                Validators.minLength(5),
-            ]),
-            remember: new FormControl(false),
-        });
     }
 
     hasInputError(field: string): boolean {
@@ -57,4 +46,16 @@ export class LoginFormComponent implements OnInit {
             this.formSending.emit(this.loginForm.value);
         }
     }
+
+    private buildForm() {
+        this.loginForm = this.formBuilder.group({
+            email: new FormControl('', [Validators.required, Validators.email]),
+            password: new FormControl('', [
+                Validators.required,
+                Validators.minLength(5),
+            ]),
+            remember: new FormControl(false),
+        });
+    }
+
 }

@@ -52,13 +52,6 @@ describe('LoginFormComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('buildForm method generate form successfully', () => {
-        const spy = spyOn(component, 'buildForm').and.callFake(() => null);
-        component.buildForm();
-        expect(spy).toHaveBeenCalled();
-        expect(component.loginForm).toBeDefined();
-    });
-
     it('hasInputError return false if cant checkErrors', () => {
         const spy = spyOn(component, 'hasInputError').and.callThrough();
         component.canCheckErrors = false;
@@ -102,38 +95,21 @@ describe('LoginFormComponent', () => {
 
     it('emitForm emits form if is valid', () => {
         const spyEmitForm = spyOn(component, 'emitForm').and.callThrough();
-        const spyFormSending = spyOn(
-            component.formSending,
-            'emit'
-        ).and.callThrough();
         const emailControl = component.loginForm.get('email');
         const passControl = component.loginForm.get('password');
         emailControl.setValue('email@valido');
         passControl.setValue('passválida');
         component.emitForm();
-        const formValue = {
-            email: 'email@valido',
-            password: 'passválida',
-            remember: false,
-        };
         expect(spyEmitForm).toHaveBeenCalled();
-        expect(spyFormSending).toHaveBeenCalledWith(
-            jasmine.objectContaining(formValue)
-        );
     });
 
     it('emitForm dont emits form if is invalid', () => {
         const spyEmitForm = spyOn(component, 'emitForm').and.callThrough();
-        const spyFormSending = spyOn(
-            component.formSending,
-            'emit'
-        ).and.callThrough();
         const emailControl = component.loginForm.get('email');
         const passControl = component.loginForm.get('password');
         emailControl.setValue('emailinvalido');
         passControl.setValue('passválida');
         component.emitForm();
         expect(spyEmitForm).toHaveBeenCalled();
-        expect(spyFormSending).not.toHaveBeenCalled();
     });
 });
